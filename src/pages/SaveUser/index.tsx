@@ -90,7 +90,7 @@ const SaveUser = () => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="lastname-control">Apellido</label>
+        <label htmlFor="lastname-control">Fecha de nacimiento</label>
         <input
           type="date"
           name="birthdate"

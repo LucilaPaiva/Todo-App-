@@ -23,15 +23,16 @@ const Users = () => {
 // //     await usersService.remove(id);
 // //     fetchData();
 return(
-<></>
+<div>
+      <h1>Estoy en users</h1>
+
+      <hr />
+      </div>
 )
 };
 
 //   return (
-//     <div>
-//       <h1>Estoy en users</h1>
-
-//       <hr />
+    
 
 //       <form action="">
 //         <input
@@ -43,7 +44,7 @@ return(
 //         />
 //       </form>
 
-//       <hr />
+    //   <hr />
 
 //       <table className="table">
 //         <thead>

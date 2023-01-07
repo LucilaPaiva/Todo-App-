@@ -1,6 +1,6 @@
 import { DB_BASE_URL } from "../../constants";
 import { mapToArray } from "../../helpers/mapToArray";
-import { Category, Task } from "../../types";
+import { Category } from "../../types";
 
 /**
  *
@@ -18,9 +18,7 @@ const getAll = async (search?: string, color?: string): Promise<Category[]> => {
     : categories;
 };
 
-/**
- *
- */
+
 const get = async (id: string): Promise<Category> => {
   const response = await fetch(`${DB_BASE_URL}/categories/${id}.json`);
   const data = await response.json();
@@ -28,9 +26,7 @@ const get = async (id: string): Promise<Category> => {
   return { id, ...data };
 };
 
-/**
- *
- */
+
 type Payload = Omit<Category, "id">;
 
 const add = async (category: Payload) => {

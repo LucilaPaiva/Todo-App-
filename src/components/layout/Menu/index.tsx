@@ -37,6 +37,21 @@ const Menu: FC = () => {
                   Usuarios
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/users/save">
+                  Crear Usuario
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/tasks/add">
+                  Crear Tareas
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/users/save">
+                  Tareas
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
