@@ -6,6 +6,7 @@ const getAll = () => {};
 const get = (id: string) => {};
 
 type Payload = Omit<Task, "id">;
+// Payload variable omit o partial(o sí o undefined)
 
 const add = async(task: Payload) => {
     const options = {

@@ -7,7 +7,7 @@ const Menu: FC = () => {
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
           <a className="navbar-brand" href="#">
-            Navbar
+            Todo-App
           </a>
           <button
             className="navbar-toggler"
@@ -27,11 +27,7 @@ const Menu: FC = () => {
                   Categorías
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/categories/save">
-                  Crear Categoría
-                </NavLink>
-              </li>
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/users">
                   Usuarios
@@ -48,7 +44,7 @@ const Menu: FC = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/users/save">
+                <NavLink className="nav-link" to="/tasks">
                   Tareas
                 </NavLink>
               </li>

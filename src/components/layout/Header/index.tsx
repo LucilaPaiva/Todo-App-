@@ -4,7 +4,7 @@ import { Menu } from "../Menu";
 const Header: FC = () => {
   return (
     <header className="main-header">
-      <div className="container">Header</div>
+      <div className="container"></div>
     </header>
   );
 };

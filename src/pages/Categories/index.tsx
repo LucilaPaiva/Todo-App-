@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../../components";
 import { categoriesService } from "../../services";
 import { Category } from "../../types";
@@ -12,11 +12,11 @@ const Categories = () => {
   const navigate = useNavigate();
 
   const fetchData = () =>
-    categoriesService.getAll(search, color).then((data) => setCategories(data));
+    categoriesService.getAll(search).then((data) => setCategories(data));
 
   useEffect(() => {
     fetchData();
-  }, [search, color]);
+  }, [search]);
 
   const borrarCategoria = async (id: string) => {
     await categoriesService.remove(id);
@@ -29,6 +29,10 @@ const Categories = () => {
 
       <hr />
 
+      <NavLink className="nav-link" to="/categories/save">
+      Crear Categoría
+      </NavLink>
+
       <form action="">
         <input
           type="text"
@@ -37,13 +41,13 @@ const Categories = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <input
+        {/* <input
           type="text"
           name="text"
           id="text"
           value={color}
           onChange={(e) => setColor(e.target.value)}
-        />
+        /> */}
       </form>
 
       <hr />
@@ -51,7 +55,6 @@ const Categories = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Color</th>
             <th>Actions</th>
@@ -61,9 +64,9 @@ const Categories = () => {
           {categories.map((elem) => {
             return (
               <tr key={elem.id}>
-                <td>{elem.id}</td>
                 <td>{elem.name}</td>
-                <td>{elem.color}</td>
+                <td style={{ background: `${elem.color}` }}></td>
+
                 <td>
                   <Button
                     variant="danger"

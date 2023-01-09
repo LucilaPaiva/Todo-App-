@@ -1,0 +1,39 @@
+footer{
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    display: flex; 
+    padding: 1%;
+    
+
+
+    .container{
+        font-size: 1em;
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        
+        
+    }
+
+        .footer-link{
+            color: aliceblue;
+            text-decoration: none;
+            margin-left: 0.5%;
+            
+
+    }
+
+    .footer-link:hover{
+        color: aliceblue;
+        text-decoration: none;
+
+    }
+
+
+
+
+}

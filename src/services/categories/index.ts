@@ -5,16 +5,16 @@ import { Category } from "../../types";
 /**
  *
  */
-const getAll = async (search?: string, color?: string): Promise<Category[]> => {
+const getAll = async (search?: string): Promise<Category[]> => {
   const response = await fetch(`${DB_BASE_URL}/categories.json`);
   const data = await response.json();
 
   const categories = mapToArray<Category>(data);
 
-  return search && color
+  return search 
     ? categories
         .filter((elem) => elem.name.includes(search))
-        .filter((elem) => elem.color.includes(color))
+
     : categories;
 };
 

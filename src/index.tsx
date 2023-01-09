@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
-  AddTask,
+  AddTasks,
   Categories,
   Home,
   Login,
@@ -10,10 +10,12 @@ import {
   SaveCategory,
   SaveUser,
   SignUp,
+  Tasks,
   Users,
 } from "./pages";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -24,9 +26,15 @@ root.render(
       <Route path="/" element={<App />}>
         {/*   http://localhost:3000/   */}
         <Route index element={<Home />} />
+        {/* user ruta padre los otros subrutas, la ruta padre es el path users 
+        por defecto me va a mostrar
+         */}
 
-        {/*   http://localhost:3000/tasks/add   */}
-        <Route path="tasks/add" element={<AddTask />} />
+        <Route path="tasks/">
+        <Route index element={<Tasks />} />
+
+        <Route path="tasks/add" element={<AddTasks />} />
+        </Route>
 
         {/*   http://localhost:3000/login   */}
         <Route path="login" element={<Login />} />
@@ -57,8 +65,9 @@ root.render(
 
           {/*   http://localhost:3000/categories/save/-NJD8Tj3CVCAzyyc2hEo   */}
           <Route path="save/:id" element={<SaveCategory />} />
-        </Route>
+          </Route>
       </Route>
+      
     </Routes>
   </BrowserRouter>
 );
