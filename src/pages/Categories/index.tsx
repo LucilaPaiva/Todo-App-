@@ -3,11 +3,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../../components";
 import { categoriesService } from "../../services";
 import { Category } from "../../types";
+import "./styles.scss";
 
 const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [search, setSearch] = useState("");
-  const [color, setColor] = useState("");
+  // const [color, setColor] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,11 +28,11 @@ const Categories = () => {
     <div>
       <h1>Categorías</h1>
 
-      <hr />
-
-      <NavLink className="nav-link" to="/categories/save">
-      Crear Categoría
+      <NavLink className="nav-link-add-category" to="/categories/save">
+        Crear Categoría
       </NavLink>
+
+      <hr />
 
       <form action="">
         <input

@@ -4,24 +4,28 @@
 // import { categoriesService } from "../../services";
 // import { Category } from "../../types";
 
+import { NavLink } from "react-router-dom";
+
 const Tasks = () => {
+  //   const fetchData = () =>
+  //     categoriesService.getAll(search, color).then((data) => setCategories(data));
 
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, [search, color]);
 
-//   const fetchData = () =>
-//     categoriesService.getAll(search, color).then((data) => setCategories(data));
-
-//   useEffect(() => {
-//     fetchData();
-//   }, [search, color]);
-
-//   const borrarCategoria = async (id: string) => {
-//     await categoriesService.remove(id);
-//     fetchData();
-//   };
+  //   const borrarCategoria = async (id: string) => {
+  //     await categoriesService.remove(id);
+  //     fetchData();
+  //   };
 
   return (
     <div>
-      <h1>Soy Tareas</h1>
+      <h1>Tareas</h1>
+
+      <NavLink className="nav-link-add-category" to="/tasks/add">
+        Crear Tareas
+      </NavLink>
 
       <table className="table">
         <thead>
@@ -34,7 +38,7 @@ const Tasks = () => {
           </tr>
         </thead>
         {/* <tbody> */}
-          {/* {categories.map((elem) => {
+        {/* {categories.map((elem) => {
             return (
               <tr key={elem.id}>
                 <td>{elem.name}</td>

@@ -36,11 +36,11 @@ const SaveUser = () => {
       rta = await usersService.add({ name, lastname, birthDate: new Date(birthDate), email, password });
     // }
 
-    // if (rta) {
-    //   navigate("/users");
-    // } else {
-    //   setIfError(true);
-    // }
+    if (rta) {
+      navigate("/users");
+    } else {
+      setIfError(true);
+    }
   };
 
   return (

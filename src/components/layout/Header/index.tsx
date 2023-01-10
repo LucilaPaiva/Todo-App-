@@ -5,6 +5,7 @@ const Header: FC = () => {
   return (
     <header className="main-header">
       <div className="container"></div>
+      {/* le saqué el header  */}
     </header>
   );
 };

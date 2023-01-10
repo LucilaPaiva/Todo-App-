@@ -1,7 +1,20 @@
 import { DB_BASE_URL } from "../../constants";
+import { mapToArray } from "../../helpers/mapToArray";
 import { User } from "../../types";
 
-const getAll = () => {};
+const getAll = async (search?: string): Promise<User[]> => {
+  const response = await fetch(`${DB_BASE_URL}/users.json`);
+  const data = await response.json();
+  const users = mapToArray<User>(data);
+  return search 
+      ? users
+          .filter((elem) => elem.name.includes(search))
+  
+      : users;
+
+};
+
+
 
 const get = (id: string) => {};
 

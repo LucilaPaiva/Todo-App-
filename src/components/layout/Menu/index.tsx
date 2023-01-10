@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
+import "./styles.scss";
 
 const Menu: FC = () => {
   return (
@@ -31,16 +32,6 @@ const Menu: FC = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/users">
                   Usuarios
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/users/save">
-                  Crear Usuario
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/tasks/add">
-                  Crear Tareas
                 </NavLink>
               </li>
               <li className="nav-item">
