@@ -18,9 +18,11 @@ const Users = () => {
     fetchData();
   }, [search]);
 
-  // const borrarUser = async (id: string) => {
-  //   await usersService.remove(id);
-  //   fetchData();
+  const borrarUser = async (id: string) => {
+    await usersService.remove(id);
+    fetchData();
+  };
+  
   return (
     <>
       <div>
@@ -57,7 +59,9 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
+          
           {users.map((elem) => {
+            console.log(elem)
             return (
               <tr key={elem.id}>
                 {/* Poner todos: e mail, password, etc */}
@@ -65,8 +69,9 @@ const Users = () => {
                 <td>{elem.lastname}</td>
                 <td>{elem.email}</td>
                 <td>{elem.password}</td>
+                <td>{elem.birthDate.getFullYear()}/{elem.birthDate.getMonth() + 1}/{elem.birthDate.getDate()}</td>
 
-                {/* <Button
+                <Button
                     variant="danger"
                     icon="trash"
                     handleClick={() => borrarUser(elem.id)}
@@ -75,7 +80,7 @@ const Users = () => {
                   variant="primary"
                   icon="pencil"
                   handleClick={() => navigate(`/users/save/${elem.id}`)}
-                /> */}
+                />
               </tr>
             );
           })}

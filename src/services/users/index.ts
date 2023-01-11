@@ -5,7 +5,8 @@ import { User } from "../../types";
 const getAll = async (search?: string): Promise<User[]> => {
   const response = await fetch(`${DB_BASE_URL}/users.json`);
   const data = await response.json();
-  const users = mapToArray<User>(data);
+  let users = mapToArray<User>(data);
+  users = users.map(elem => ({...elem, birthDate: new Date(elem.birthDate)}))
   return search 
       ? users
           .filter((elem) => elem.name.includes(search))
@@ -36,4 +37,12 @@ const add = async(user: Payload) => {
       }
 };
 
-export const usersService = { getAll, get, add };
+const remove = async (id: string) => {
+  const options = {
+    method: "DELETE",
+  };
+
+  await fetch(`${DB_BASE_URL}/users/${id}.json`, options);
+};
+
+export const usersService = { getAll, get, add, remove };

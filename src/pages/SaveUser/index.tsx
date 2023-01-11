@@ -7,13 +7,15 @@ const SaveUser = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [birthDate, setBirthDate] = useState("");
+  const [birthDate, setBirthDate] = useState(new Date());
+  // los useState son: se usa el set para
   
 
   const [ifError, setIfError] = useState(false);
 
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams(); 
+  // pedir explicación de UseParams
 
   // const obtenerUserAEditar = async () => {
   //   if (id) {
@@ -95,8 +97,9 @@ const SaveUser = () => {
           type="date"
           name="birthdate"
           id="birthdate-control"
-          value={birthDate}
-          onChange={(e) => setBirthDate(e.target.value)}
+          value={birthDate.toString()}
+          // los campos de formularios aceptan string y devuelven string
+          onChange={(e) => setBirthDate(new Date(e.target.value))}
           className="form-control"
         />
       </div>
