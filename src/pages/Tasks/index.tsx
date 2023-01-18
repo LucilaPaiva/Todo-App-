@@ -23,7 +23,7 @@ const Tasks = () => {
     <div>
       <h1>Tareas</h1>
 
-      <NavLink className="nav-link-add-category" to="/tasks/add">
+      <NavLink className="nav-link-add-category" to="add">
         Crear Tareas
       </NavLink>
 

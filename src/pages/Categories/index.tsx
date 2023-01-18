@@ -25,7 +25,7 @@ const Categories = () => {
   };
 
   return (
-    <div>
+    <div className="container-categorias">
       <h1>Categorías</h1>
 
       <NavLink className="nav-link-add-category" to="/categories/save">
@@ -69,13 +69,13 @@ const Categories = () => {
                 <td style={{ background: `${elem.color}` }}></td>
 
                 <td>
-                  <Button
-                    variant="danger"
+                  <Button 
+                    variant="outline-danger"
                     icon="trash"
                     handleClick={() => borrarCategoria(elem.id)}
                   />
-                  <Button
-                    variant="primary"
+                  <Button 
+                    variant="outline-primary"
                     icon="pencil"
                     handleClick={() => navigate(`/categories/save/${elem.id}`)}
                   />

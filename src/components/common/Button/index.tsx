@@ -2,8 +2,8 @@ import { FC, ReactNode } from "react";
 
 type Props = {
   children?: ReactNode;
-  variant: "primary" | "secondary" | "default" | "dark" | "danger";
-  icon?: "alarm" | "x-circle" | "trash" | "pencil";
+  variant: "primary" | "secondary" | "default" | "dark" | "danger" | "outline-danger" | "outline-primary";
+  icon?: "alarm" | "x-circle" | "trash" | "pencil" ;
   handleClick: () => void;
 };
 

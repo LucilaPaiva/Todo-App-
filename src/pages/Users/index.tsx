@@ -35,6 +35,8 @@ const Users = () => {
         <hr />
       </div>
 
+{/* este es el filtro */}
+
       <form action="">
         <input
           type="text"
@@ -60,6 +62,8 @@ const Users = () => {
         </thead>
         <tbody>
           
+{/* con el map hago un arreglo con los usuarios que hay en la base de datos */}
+
           {users.map((elem) => {
             console.log(elem)
             return (
@@ -72,14 +76,15 @@ const Users = () => {
                 <td>{elem.birthDate.getFullYear()}/{elem.birthDate.getMonth() + 1}/{elem.birthDate.getDate()}</td>
 
                 <Button
-                    variant="danger"
+                    variant="outline-danger"
                     icon="trash"
                     handleClick={() => borrarUser(elem.id)}
                   /> 
                 <Button
-                  variant="primary"
+                  variant="outline-primary"
                   icon="pencil"
                   handleClick={() => navigate(`/users/save/${elem.id}`)}
+                  // acá le digo que vaya a la página save user con el id seleccionado
                 />
               </tr>
             );

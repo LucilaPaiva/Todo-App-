@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usersService } from "../../services";
 import { useNavigate, useParams } from "react-router-dom";
+//import { createSemanticDiagnosticsBuilderProgram } from "typescript";
 
 const SaveUser = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [birthDate, setBirthDate] = useState(new Date());
+  const [birthDate, setBirthDate] = useState("");
   // los useState son: se usa el set para
   
 
@@ -17,14 +18,26 @@ const SaveUser = () => {
   const { id } = useParams(); 
   // pedir explicación de UseParams
 
-  // const obtenerUserAEditar = async () => {
-  //   if (id) {
-  //     const rta = await usersService.get(id);
-  //     setName(rta.name);
-  //   }
-  // };
 
-  // if (id && name === "" &&  === "") obtenerUserAEditar();
+useEffect(()=>{
+  
+    if (id) {
+      usersService.get(id).then(rta =>{
+        setName(rta.name);
+        setLastname(rta.lastname);
+        setEmail(rta.email);
+        setPassword(rta.password);
+        // setBirthDate(rta.birthDate);
+      });
+      
+  };
+},[])
+
+
+// si pongo el arreglo vacío se ejecuta una sola vez cuando cargo el componente. si le paso un 
+// parametro al arreglo (estado) se va a ejecutar cuando ese estado. sin el arreglo de dependencias se genera un lop infinito
+
+  // if (id && name === "" &&  === "")
 
   const enviarFormulario = async (e: any) => {
     e.preventDefault();
@@ -32,11 +45,11 @@ const SaveUser = () => {
     setIfError(false);
 
     let rta;
-    // if (id) {
-    //   rta = await usersService.update({ id, name, });
-    // } else {
+    if (id) {
+      rta = await usersService.update({ id, name, lastname,email, birthDate: new Date(birthDate), password });
+          } else {
       rta = await usersService.add({ name, lastname, birthDate: new Date(birthDate), email, password });
-    // }
+    }
 
     if (rta) {
       navigate("/users");
@@ -44,6 +57,9 @@ const SaveUser = () => {
       setIfError(true);
     }
   };
+
+
+
 
   return (
     <form onSubmit={enviarFormulario}>
@@ -97,9 +113,8 @@ const SaveUser = () => {
           type="date"
           name="birthdate"
           id="birthdate-control"
-          value={birthDate.toString()}
-          // los campos de formularios aceptan string y devuelven string
-          onChange={(e) => setBirthDate(new Date(e.target.value))}
+          value={birthDate}
+          onChange={(e) => setBirthDate(e.target.value)}
           className="form-control"
         />
       </div>

@@ -33,7 +33,7 @@ root.render(
         <Route path="tasks/">
         <Route index element={<Tasks />} />
 
-        <Route path="tasks/add" element={<AddTasks />} />
+        <Route path="add" element={<AddTasks />} />
         </Route>
 
         {/*   http://localhost:3000/login   */}

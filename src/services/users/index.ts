@@ -15,9 +15,13 @@ const getAll = async (search?: string): Promise<User[]> => {
 
 };
 
+const get = async (id: string): Promise<User> => {
+  const response = await fetch(`${DB_BASE_URL}/users/${id}.json`);
+  const data = await response.json();
 
+  return { id, ...data };
+};
 
-const get = (id: string) => {};
 
 type Payload = Omit<User, "id">;
 
@@ -45,4 +49,20 @@ const remove = async (id: string) => {
   await fetch(`${DB_BASE_URL}/users/${id}.json`, options);
 };
 
-export const usersService = { getAll, get, add, remove };
+const update = async ({ id, name, lastname, email, birthDate, password}: User) => {
+  const options = {
+    method: "PUT",
+    body: JSON.stringify({ name, lastname, email, birthDate, password }),
+  };
+
+  const response = await fetch(`${DB_BASE_URL}/users/${id}.json`, options);
+  const data = await response.json();
+
+  if (data.name) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const usersService = { getAll, get, add, remove, update };

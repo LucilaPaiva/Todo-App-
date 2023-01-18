@@ -54,7 +54,7 @@ const AddTasks = () => {
     //   setIfError(true);
     // }
 
-   // navigate('/task')
+   //navigate('/task')
   };
 
   return (
@@ -127,7 +127,7 @@ const AddTasks = () => {
 
 
 export { AddTasks };
-  function useEffet(arg0: () => void, arg1: never[]) {
-    throw new Error("Function not implemented.");
-  }
+  // function useEffet(arg0: () => void, arg1: never[]) {
+  //   throw new Error("Function not implemented.");
+  // }
 
